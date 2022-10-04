@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 export const argonauteSlice = createSlice({
   name: "argonautes",
   initialState: {
