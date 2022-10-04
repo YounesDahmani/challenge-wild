@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import CreateArgonaute from "./components/CreateArgonaute";
+import { db } from "./utils/firebase.config";
+import { collection, getDocs } from "firebase/firestore";
+import Argonaute from "./components/Argonaute";
 
-function App() {
+const App = () => {
+  const [argonautes, setArgonautes] = useState([]);
+
+  useEffect(() => {
+    getDocs(collection(db, "argonautes")).then((res) =>
+      setArgonautes(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    );
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CreateArgonaute />
+      <div>
+        {argonautes.length > 0 &&
+          argonautes.map((argonaute) => (
+            <Argonaute argonaute={argonaute} key={argonaute.id} />
+          ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
