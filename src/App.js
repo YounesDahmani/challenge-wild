@@ -19,13 +19,19 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="app">
+      <div className="title">
+        <h1>Liste des Argonautes</h1>
+        <h3>À destination de Jason.</h3>
+      </div>
       <CreateArgonaute />
-      <div>
+      <div className="list">
         {argonautes &&
-          [...argonautes].map((argonaute) => (
-            <Argonaute argonaute={argonaute} key={argonaute.id} />
-          ))}
+          [...argonautes]
+            .sort((a, b) => (a.name > b.name ? 1 : -1))
+            .map((argonaute) => (
+              <Argonaute argonaute={argonaute} key={argonaute.id} />
+            ))}
       </div>
     </div>
   );

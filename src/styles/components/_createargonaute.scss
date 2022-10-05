@@ -1,0 +1,49 @@
+.create-argonaute {
+  form {
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .infos-argonaute {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (max-width: 377px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      input {
+        font-family: $font-1;
+        font-size: 1rem;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 377px) {
+          margin-top: 20px;
+        }
+        #name {
+          margin-top: 10px;
+          padding: 10px;
+          margin-right: 15px;
+          background: #ffca8e;
+          color: black;
+        }
+        #adjective {
+          margin-top: 10px;
+          padding: 10px;
+          background: #ffca8e;
+          color: black;
+        }
+      }
+    }
+    #submit {
+      margin-top: 30px;
+      background: #ffca8e;
+      padding: 15px 60px;
+      font-family: $font-1;
+    }
+  }
+}

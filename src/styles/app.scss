@@ -1,0 +1,20 @@
+.app {
+  .title {
+    text-align: center;
+    padding-top: 40px;
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  .list {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: 817px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 584px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
